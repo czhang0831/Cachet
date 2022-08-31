@@ -38,6 +38,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(Dispatcher $dispatcher)
     {
+        // the oritinal url doesn't have the port
+        \URL::forceRootUrl("https://dev.cachet.k8s.ali-cn-shenzhen.corp.pony.ai:30443");
         Schema::defaultStringLength(191);
 
         $dispatcher->mapUsing(function ($command) {

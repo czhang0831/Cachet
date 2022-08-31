@@ -66,7 +66,9 @@ class AuthController extends Controller
 
             event(new UserLoggedInEvent(Auth::user()));
 
-            return Redirect::intended(cachet_route('dashboard'));
+            // return Redirect::intended(cachet_route('dashboard'));
+            // the redirected URL loses the port
+            return cachet_redirect('dashboard');
         }
 
         return cachet_redirect('auth.login')
